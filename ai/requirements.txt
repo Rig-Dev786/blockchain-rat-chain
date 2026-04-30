@@ -1,0 +1,20 @@
+# Core ML / CV
+ultralytics==8.2.0
+torch==2.3.0
+torchvision==0.18.0
+opencv-python==4.9.0.80
+numpy==1.26.4
+Pillow==10.3.0
+albumentations==1.4.6
+
+# API
+fastapi==0.111.0
+uvicorn==0.29.0
+python-multipart==0.0.9
+
+# Security / Crypto
+cryptography==42.0.7
+
+# Config / Utils
+python-dotenv==1.0.1
+pydantic==2.7.1

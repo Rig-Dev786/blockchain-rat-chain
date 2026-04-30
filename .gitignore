@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.env
+venv/
+.venv/
+*.egg-info/
+
+# Node
+node_modules/
+.next/
+dist/
+.env.local
+.env*.local
+
+# AI
+ai/models/weights/*.pt
+ai/datasets/raw/*
+ai/outputs/*
+!ai/outputs/.gitkeep
+
+# Blockchain
+blockchain/artifacts/
+blockchain/cache/
+blockchain/.env
+
+# System
+.DS_Store
+*.log
+*.sqlite
+
+# AI signing keys — NEVER commit these
+ai/keys/private_key.pem
+ai/keys/

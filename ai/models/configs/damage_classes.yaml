@@ -1,0 +1,45 @@
+# damage_classes.yaml — YOLOv8 dataset config for fine-tuning
+# Place your dataset at ai/datasets/ in YOLO format:
+#   datasets/
+#     images/
+#       train/   ← training images
+#       val/     ← validation images
+#     labels/
+#       train/   ← YOLO format .txt annotations
+#       val/     ← YOLO format .txt annotations
+
+path: ../datasets       # root relative to this config file
+train: images/train
+val: images/val
+
+# Number of classes
+nc: 6
+
+# Class names — must match SEVERITY_WEIGHTS keys in detector.py
+names:
+  0: crack
+  1: stain
+  2: hole
+  3: mold
+  4: scratch
+  5: broken
+
+# --- Training Notes ---
+# Recommended datasets to bootstrap from:
+#   - RDD2022 (Road Damage Dataset) — has crack annotations, transferable
+#   - ADE20K — indoor scenes, useful for stain/mold context
+#   - Custom annotation: use LabelStudio or Roboflow to annotate rental property images
+#
+# Fine-tune command (from ai/ directory):
+#   yolo detect train \
+#     data=models/configs/damage_classes.yaml \
+#     model=yolov8n.pt \
+#     epochs=100 \
+#     imgsz=640 \
+#     batch=16 \
+#     name=rentproof_damage_v1
+#
+# Best weights will be saved to:
+#   runs/detect/rentproof_damage_v1/weights/best.pt
+# Copy to:
+#   models/weights/best.pt
