@@ -4,7 +4,10 @@
   "scripts": {
     "compile": "hardhat compile",
     "test": "hardhat test",
-    "deploy": "hardhat run scripts/deploy.js --network polygonMumbai"
+    "deploy:sepolia": "hardhat run scripts/deploy.js --network sepolia",
+    "media:record": "hardhat run scripts/recordMedia.js --network sepolia",
+    "media:hash-url": "node scripts/hashUrl.js",
+    "media:verify": "node scripts/verifyMedia.js"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^4.0.0",

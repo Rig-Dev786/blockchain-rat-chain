@@ -4,9 +4,9 @@ require("dotenv").config();
 module.exports = {
   solidity: "0.8.24",
   networks: {
-    polygonMumbai: {
-      url: process.env.POLYGON_MUMBAI_RPC,
-      accounts: [process.env.PRIVATE_KEY],
+    sepolia: {
+      url: process.env.SEPOLIA_RPC,
+      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
     },
   },
 };

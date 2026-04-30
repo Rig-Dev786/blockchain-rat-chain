@@ -36,6 +36,7 @@ contract RentProofEscrow {
     function releaseDeposit(uint256 _id, VerdictType _verdict, uint256 _deductionBps) external onlyOwner {
         Agreement storage a = agreements[_id];
         require(a.active && !a.settled, "Invalid state");
+        require(_deductionBps <= 10000, "Deduction too high");
         a.settled = true;
 
         uint256 deduction = (a.deposit * _deductionBps) / 10000;

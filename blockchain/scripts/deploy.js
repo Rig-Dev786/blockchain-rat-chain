@@ -1,10 +1,26 @@
 const hre = require("hardhat");
 
 async function main() {
-  const Escrow = await hre.ethers.getContractFactory("RentProofEscrow");
-  const escrow = await Escrow.deploy();
+  console.log("Deploying RentProofEscrow...");
+  const escrow = await hre.ethers.deployContract("RentProofEscrow");
   await escrow.waitForDeployment();
-  console.log("RentProofEscrow deployed to:", await escrow.getAddress());
+  const escrowAddress = await escrow.getAddress();
+  console.log("RentProofEscrow deployed to:", escrowAddress);
+
+  console.log("Deploying RentalAgreement...");
+  const agreement = await hre.ethers.deployContract("RentalAgreement");
+  await agreement.waitForDeployment();
+  const agreementAddress = await agreement.getAddress();
+  console.log("RentalAgreement deployed to:", agreementAddress);
+
+  console.log("Deploying MediaRegistry...");
+  const mediaRegistry = await hre.ethers.deployContract("MediaRegistry");
+  await mediaRegistry.waitForDeployment();
+  const mediaRegistryAddress = await mediaRegistry.getAddress();
+  console.log("MediaRegistry deployed to:", mediaRegistryAddress);
 }
 
-main().catch((e) => { console.error(e); process.exit(1); });
+main().catch((error) => {
+  console.error(error);
+  process.exit(1);
+});
