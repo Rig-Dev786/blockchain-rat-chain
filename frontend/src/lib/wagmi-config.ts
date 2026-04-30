@@ -7,3 +7,5 @@ export const wagmiConfig = createConfig({
   connectors: [injected()],
   transports: { [polygonMumbai.id]: http() },
 });
+
+export const config = wagmiConfig;
